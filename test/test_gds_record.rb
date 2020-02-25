@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-require 'test/helper.rb'
+require_relative 'helper.rb'
 require_relative '../lib/gdsii/record'
 
 include Gdsii

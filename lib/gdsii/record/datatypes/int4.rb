@@ -14,15 +14,15 @@ module Gdsii
       attr_reader :value
 
       # Construct an Gdsii::RecData::Int4 data object.  The value is an array
-      # of integers (Fixnum).
+      # of integers (Integer).
       def initialize(value)
         super(GDT_INT4, value)
       end
 
       # Set the value for this object; verify that the value items are of
-      # type Fixnum (or at least can be coerced using "to_i").
+      # type Integer (or at least can be coerced using "to_i").
       def value=(value)
-        @value = Data.coerce_value(value, Fixnum, :to_i)
+        @value = Data.coerce_value(value, Integer, :to_i)
       end
 
       # Returns the size of the record *data* in bytes.  Each array element

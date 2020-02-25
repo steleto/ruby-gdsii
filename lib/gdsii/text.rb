@@ -86,7 +86,7 @@ module Gdsii
     def texttype_record() @records.get(GRT_TEXTTYPE); end
 
     #
-    # Get the texttype number (returns Fixnum).
+    # Get the texttype number (returns Integer).
     #
     def texttype() @records.get_data(GRT_TEXTTYPE); end
   
@@ -116,7 +116,7 @@ module Gdsii
     def presentation_record() @records.get(GRT_PRESENTATION); end
 
     #
-    # Get the presentation bitarray number (returns Fixnum).  It is probably
+    # Get the presentation bitarray number (returns Integer).  It is probably
     # easier to use #font and #origin instead.
     #
     def presentation() @records.get_data(GRT_PRESENTATION); end
@@ -150,7 +150,7 @@ module Gdsii
     end
 
     #
-    # Returns the font number (Fixnum in range 0-3) according to the font bits
+    # Returns the font number (Integer in range 0-3) according to the font bits
     # in the #presentation record.
     #
     def font()

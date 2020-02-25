@@ -34,8 +34,8 @@ module Gdsii
     )
 
     #
-    # Boundary object constructor.  Layer and datatype are given as Fixnum
-    # and the coordinate points are given as an array of Fixnum alternating
+    # Boundary object constructor.  Layer and datatype are given as Integer
+    # and the coordinate points are given as an array of Integer alternating
     # x and y values (coordinate pair range is 4-200).  Example:
     #
     #  rectangle = Gdsii::Boundary.new(1, 0, [0,0, 0,10, 10,10, 10,0, 0,0])

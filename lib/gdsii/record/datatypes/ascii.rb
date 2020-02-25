@@ -52,7 +52,7 @@ module Gdsii
       #  record.unpad.inspect   #=> ["hello"]
       #
       # dmi unpad modified for use in ruby versions > 1.9
-      def unpad_1_9()
+      def unpad()
         new_arr = []
         @value.each do |string|
           string = string.dup    # to avoid changing the original
@@ -62,32 +62,6 @@ module Gdsii
           new_arr.push string
         end
         new_arr
-      end
-
-      # dmi Original unpad
-      def unpad_1_8()
-        new_arr = []
-        @value.each do |string|
-          string = string.dup    # to avoid changing the original
-          while (string[-1] == 0) 
-            string.chop!
-          end
-          new_arr.push string
-        end
-        new_arr
-      end
-
-      # Choose an unpad appropriate for the Ruby version.
-      # Comparison's with versions before 1.8.0 of ruby don't work here.
-      # Attempts to use the output of Gem::Version('1.9.0') for
-      # version comparisons require rubygems be loaded for 1.8 and
-      # earlier versions of ruby complains when rubygems are missing.
-      # If you've got a solution that quietly determines if we have a
-      # ruby version 1.9.0 or later please fix the following:
-      if Gdsii::is_1_9_or_later?
-        alias_method :unpad, :unpad_1_9
-      else
-        alias_method :unpad, :unpad_1_8
       end
 
       # Same as #unpad but modifies the value of this object.

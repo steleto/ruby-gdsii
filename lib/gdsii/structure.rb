@@ -108,7 +108,7 @@ module Gdsii
     def strclass_record() @records.get(GRT_STRCLASS); end
 
     #
-    # Get the strclass bitarray number (returns Fixnum).
+    # Get the strclass bitarray number (returns Integer).
     #
     def strclass() @records.get_data(GRT_STRCLASS); end
   
@@ -125,14 +125,14 @@ module Gdsii
     def bgnstr_record() @records.get(GRT_BGNSTR); end
 
     #
-    # Get the bgnstr number (returns Fixnum).  This holds the create/modify
+    # Get the bgnstr number (returns Integer).  This holds the create/modify
     # time stamp for the structure.  It is probably easier to not access this
     # directly but to use #create_time and #modify_time instead.
     #
     def bgnstr() @records.get_data(GRT_BGNSTR); end
   
     #
-    # Set the bgnstr number.  The value is a Fixnum representation of the
+    # Set the bgnstr number.  The value is a Integer representation of the
     # create/modify time stamp for the structure.  It is probably easier to
     # not access this directly but to use #create_time= and #modify_time=
     # instead.

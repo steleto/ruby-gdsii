@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-require 'test/helper.rb'
+require_relative'helper.rb'
 require_relative '../lib/gdsii/boundary'
 require_relative '../lib/gdsii/path'
 require_relative '../lib/gdsii/strans'
@@ -103,7 +103,7 @@ class GdsGroupTest < Test::Unit::TestCase
       assert_equal false, s.abs_angle?
     end
   end
-    
+
   ############################################################################
 
   # Test PATH items
@@ -201,7 +201,7 @@ class GdsGroupTest < Test::Unit::TestCase
     assert_equal(5, a.layer)
     assert_equal(3, a.nodetype)  
   end
-    
+
   ############################################################################
 
   # Test SRef items
@@ -264,7 +264,7 @@ class GdsGroupTest < Test::Unit::TestCase
     assert_nil b.xy
     b.row_space = 25
     assert_equal([100,100, 300,100, 100,150], b.xy)
- 
+
     # run tests on strans of this object
     test_strans(a)
   end
@@ -306,74 +306,74 @@ class GdsGroupTest < Test::Unit::TestCase
   ############################################################################
 
   
-   # Test library items
-   def test_library()
-     lib = Library.new('MYLIB')
-     assert_equal 'MYLIB', lib.name
-     assert_equal lib.units, DEF_LIB_UNITS
-     assert_equal lib.header, DEF_LIB_VERSION
-     assert_equal lib.version, DEF_LIB_VERSION
-     assert (lib.access_time and lib.modify_time)
-     assert lib.structures.empty?
+  # Test library items
+  def test_library()
+    lib = Library.new('MYLIB')
+    assert_equal 'MYLIB', lib.name
+    assert_equal lib.units, DEF_LIB_UNITS
+    assert_equal lib.header, DEF_LIB_VERSION
+    assert_equal lib.version, DEF_LIB_VERSION
+    assert (lib.access_time and lib.modify_time)
+    assert lib.structures.empty?
 
-     # test defaults
-     assert_nil lib.fonts
-     assert_nil lib.format
-     assert_nil lib.generations
-     assert_nil lib.secur
-     assert_equal [], lib.mask
-     assert_nil lib.srfname
+    # test defaults
+    assert_nil lib.fonts
+    assert_nil lib.format
+    assert_nil lib.generations
+    assert_nil lib.secur
+    assert_equal [], lib.mask
+    assert_nil lib.srfname
 
-     # test units
-     user = lib.user_units
-     db = lib.database_units
-     assert_equal [user, db], lib.units
-     assert_equal 1e-6, lib.m_units
+    # test units
+    user = lib.user_units
+    db = lib.database_units
+    assert_equal [user, db], lib.units
+    assert_equal 1e-6, lib.m_units
 
-     # tweak then verify all values
-     lib.name = 'LIB2'
-     lib.version = 7
-     lib.units = [0.001, 2e-9]
-     lib.fonts = ["one","two/three", "four","five"]
-     lib.generations = 3
-     lib.dirsize = 30
-     lib.secur = [1,2,7]
-     lib.mask = ['0 2-5 6 ; 0-64']
-     lib.srfname = "test"
-     assert_equal('LIB2', lib.name)
-     assert_equal(7, lib.version)
-     assert_equal(7, lib.header)
-     assert_equal([0.001, 2e-9], lib.units)
-     assert_equal(2e-6, lib.m_units)
-     assert_equal(["one","two/three", "four","five"], lib.fonts)    
-     assert_equal(3, lib.generations)
-     assert_equal(30, lib.dirsize)
-     assert_equal([1,2,7], lib.secur)
-     assert_equal(['0 2-5 6 ; 0-64'], lib.mask)
-     assert_equal("test", lib.srfname)
+    # tweak then verify all values
+    lib.name = 'LIB2'
+    lib.version = 7
+    lib.units = [0.001, 2e-9]
+    lib.fonts = ["one","two/three", "four","five"]
+    lib.generations = 3
+    lib.dirsize = 30
+    lib.secur = [1,2,7]
+    lib.mask = ['0 2-5 6 ; 0-64']
+    lib.srfname = "test"
+    assert_equal('LIB2', lib.name)
+    assert_equal(7, lib.version)
+    assert_equal(7, lib.header)
+    assert_equal([0.001, 2e-9], lib.units)
+    assert_equal(2e-6, lib.m_units)
+    assert_equal(["one","two/three", "four","five"], lib.fonts)
+    assert_equal(3, lib.generations)
+    assert_equal(30, lib.dirsize)
+    assert_equal([1,2,7], lib.secur)
+    assert_equal(['0 2-5 6 ; 0-64'], lib.mask)
+    assert_equal("test", lib.srfname)
 
-     # mess with the format record
-     lib.format = 0
-     assert_equal(0, lib.format)
-     assert(lib.archive_format?)
-     lib.format = 1
-     assert_equal(1, lib.format)
-     assert(lib.filtered_format?)
+    # mess with the format record
+    lib.format = 0
+    assert_equal(0, lib.format)
+    assert(lib.archive_format?)
+    lib.format = 1
+    assert_equal(1, lib.format)
+    assert(lib.filtered_format?)
 
-     # mess with the time
-     now = Time.new + 360
-     lib.access_time = now
-     lib.modify_time = now
-     assert_equal now, lib.access_time
-     assert_equal now, lib.modify_time
+    # mess with the time
+    now = Time.new + 360
+    lib.access_time = now
+    lib.modify_time = now
+    assert_equal now, lib.access_time
+    assert_equal now, lib.modify_time
 
-     # test adding structures
-     lib.structures << Structure.new("first")
-     lib.structures.add(Structure.new("second"))
-     lib.add(Structure.new("third"))
-     assert_equal("first", lib.structures[0].name)
-     assert_equal("second", lib.structures[1].name)
-     assert_equal("third", lib.structures[2].name)
+    # test adding structures
+    lib.structures << Structure.new("first")
+    lib.structures.add(Structure.new("second"))
+    lib.add(Structure.new("third"))
+    assert_equal("first", lib.structures[0].name)
+    assert_equal("second", lib.structures[1].name)
+    assert_equal("third", lib.structures[2].name)
   end
   
 end

@@ -99,7 +99,6 @@ SPEC = Gem::Specification.new do |s|
     "test/test_l_pthru.rb"
   ]
   s.bindir     = "bin"
-  s.has_rdoc   = true
   s.extra_rdoc_files = ["README.txt", "LICENSE.txt"]
 end
 

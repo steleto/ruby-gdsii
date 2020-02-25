@@ -36,7 +36,7 @@ module Gdsii
     def record() @records.get(GRT_STRANS); end
 
     #
-    # Get the strans bitarray data (returns Fixnum).  The recommendation is to
+    # Get the strans bitarray data (returns Integer).  The recommendation is to
     # not access this directly but rather use the various bitwise query
     # methods instead: #reflect_x?, #abs_angle?, #abs_mag?.
     #
@@ -62,7 +62,7 @@ module Gdsii
     def angle_record() @records.get_data(GRT_ANGLE); end
 
     #
-    # Get the strans angle value (returns Fixnum)
+    # Get the strans angle value (returns Integer)
     #
     def angle() @records.get_data(GRT_ANGLE); end
 
@@ -77,7 +77,7 @@ module Gdsii
     def mag_record() @records.get_data(GRT_MAG); end
 
     #
-    # Get the strans magnification value (returns Fixnum)
+    # Get the strans magnification value (returns Integer)
     #
     def mag() @records.get_data(GRT_MAG); end
 

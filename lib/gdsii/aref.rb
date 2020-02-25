@@ -67,7 +67,7 @@ module Gdsii
     def colrow_record() @records.get(GRT_COLROW); end
 
     #
-    # Get the colrow array of numbers (returns 2-element Array of Fixnum)
+    # Get the colrow array of numbers (returns 2-element Array of Integer)
     # where the first number is columns and the second is rows [col, row].
     # Alternatively, the #rows and #columns method may also be used.
     #
@@ -84,7 +84,7 @@ module Gdsii
     def colrow=(val) @records.set(GRT_COLROW, val); end   
 
     #
-    # Set the columns number in the COLROW record (Fixnum)
+    # Set the columns number in the COLROW record (Integer)
     #
     #  aref.columns = 2
     #
@@ -97,7 +97,7 @@ module Gdsii
     end
   	  
     #
-    # Get the columns number in the COLROW record (returns Fixnum)
+    # Get the columns number in the COLROW record (returns Integer)
     #
     #  aref.columns  #=> 2
     #
@@ -119,7 +119,7 @@ module Gdsii
     end
   	  
     #
-    # Get the rows number in the COLROW record (returns Fixnum)
+    # Get the rows number in the COLROW record (returns Integer)
     #
     #  aref.rows  #=> 8
     #

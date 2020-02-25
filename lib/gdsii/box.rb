@@ -52,7 +52,7 @@ module Gdsii
     def boxtype_record() @records.get(GRT_BOXTYPE); end
 
     #
-    # Get the boxtype number (returns Fixnum).
+    # Get the boxtype number (returns Integer).
     #
     def boxtype() @records.get_data(GRT_BOXTYPE); end
 

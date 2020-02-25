@@ -52,7 +52,7 @@ module Gdsii
     def nodetype_record() @records.get(GRT_NODETYPE); end
 
     #
-    # Get the nodetype number (returns Fixnum).
+    # Get the nodetype number (returns Integer).
     #
     def nodetype() @records.get_data(GRT_NODETYPE); end
 

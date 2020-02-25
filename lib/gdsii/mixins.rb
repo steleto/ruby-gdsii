@@ -15,7 +15,7 @@ module Gdsii
       # Get the layer record (returns Record)
       def layer_record() @records.get(GRT_LAYER); end
       
-      # Get the layer number (returns Fixnum)
+      # Get the layer number (returns Integer)
       def layer() @records.get_data(GRT_LAYER); end
       
       # Set the layer number
@@ -31,7 +31,7 @@ module Gdsii
       # Get the datatype record (returns Record)
       def datatype_record() @records.get(GRT_DATATYPE); end
 
-      # Get the datatype number (returns Fixnum)
+      # Get the datatype number (returns Integer)
       def datatype() @records.get_data(GRT_DATATYPE); end
   
       # Set the datatype number
@@ -63,7 +63,7 @@ module Gdsii
       # Get the elflags record (returns Record)
       def elflags_record() @records.get(GRT_ELFLAGS); end
       
-      # Get the elflags record data (returns Fixnum)
+      # Get the elflags record data (returns Integer)
       def elflags() @records.get_data(GRT_ELFLAGS); end
     
       # Set the elflags record
@@ -79,7 +79,7 @@ module Gdsii
       # Set the plex record (returns Record)
       def plex_record() @records.get_data(GRT_PLEX); end
 
-      # Set the plex record data (returns Fixnum)
+      # Set the plex record data (returns Integer)
       def plex() @records.get_data(GRT_PLEX); end
     
       # Set the plex record
@@ -98,12 +98,12 @@ module Gdsii
       def pathtype_record() @records.get(GRT_PATHTYPE); end
 
       #
-      # Get the path type number (returns Fixnum).
+      # Get the path type number (returns Integer).
       #
       def pathtype() @records.get_data(GRT_PATHTYPE); end
 
       #
-      # Set the type number (as Fixnum).  Valid range is 0-2,4 (not 3):
+      # Set the type number (as Integer).  Valid range is 0-2,4 (not 3):
       #
       # * 0: Square ended paths (default)
       # * 1: Round ended
@@ -138,13 +138,13 @@ module Gdsii
       def width_record() @records.get(GRT_WIDTH); end
 
       #
-      # Get the path width value (returns Fixnum).  The width value is multiplied
+      # Get the path width value (returns Integer).  The width value is multiplied
       # with the UNITS value of the library to obtain the actual width.
       #
       def width() @records.get_data(GRT_WIDTH); end
 
       #
-      # Set the path width value (as Fixnum).  The width value is multiplied
+      # Set the path width value (as Integer).  The width value is multiplied
       # with the UNITS value of the library and magnification factor to obtain
       # the actual width.  If the width value is negative, then the value is
       # interpreted to be absolute and will not be affected by the database
@@ -222,7 +222,7 @@ module Gdsii
       # added.  The object added is returned.
       #
       def add(object)
-        self.validate_addition(object) if self.respond_to?(:validate_addition)
+        self.validate_addition(object) if self.respond_to?(:validate_addition, true)
         @list.push object
         object
       end
@@ -296,7 +296,7 @@ module Gdsii
       while i < bnf_items.length do
         bnf_item = bnf_items[i]
 
-        # see what kind of a BNF item this is - a Class or a record type (Fixnum)
+        # see what kind of a BNF item this is - a Class or a record type (Integer)
         if bnf_item.key.class == Class
           # return if stop_at_class is set to true (used internally for
           # Library#read_header and Cell#read_header).
@@ -322,7 +322,7 @@ module Gdsii
             i += 1
           end
         else
-          # ELSE, a record type is expected (Fixnum)
+          # ELSE, a record type is expected (Integer)
           rec = Record.read(file)
 #          puts "  --> expect #{Gdsii::grt_name(bnf_item.key)}; rec == #{rec.name}"
           if rec.type == bnf_item.key

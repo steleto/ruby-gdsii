@@ -120,7 +120,7 @@ module Gdsii
     def header_record() @records.get(GRT_HEADER); end
 
     #
-    # Get the header number; this is the GDSII version (returns Fixnum).
+    # Get the header number; this is the GDSII version (returns Integer).
     #
     def header() @records.get_data(GRT_HEADER); end
   
@@ -140,7 +140,7 @@ module Gdsii
     def dirsize_record() @records.get(GRT_LIBDIRSIZE); end
 
     #
-    # Get the number of pages in the library directory (returns Fixnum).  This
+    # Get the number of pages in the library directory (returns Integer).  This
     # is likely an old Calma record and is likely unused except in rare
     # circumstances.
     #
@@ -174,11 +174,11 @@ module Gdsii
     def secur_record() @records.get(GRT_LIBSECUR); end
 
     #
-    # Get the secur number (returns Fixnum).  This is an array of 1-32
-    # elements of an array of 3 elements; each containing Fixnum representing
+    # Get the secur number (returns Integer).  This is an array of 1-32
+    # elements of an array of 3 elements; each containing Integer representing
     # (respectively): group number, user number, and access rights.  Since this
     # appears to be rarely used, no high-level methods are given to access this
-    # record.  Returns an Array of Fixnum.
+    # record.  Returns an Array of Integer.
     #
     def secur() @records.get_data(GRT_LIBSECUR); end
   
@@ -226,7 +226,7 @@ module Gdsii
     def generations_record() @records.get(GRT_GENERATIONS); end
 
     #
-    # Get the generations number (returns Fixnum).  This number represents
+    # Get the generations number (returns Integer).  This number represents
     # how many structures should be retained as backup.  This is likely
     # rarely used.
     #
@@ -243,7 +243,7 @@ module Gdsii
     def format_record() @records.get(GRT_FORMAT); end
 
     #
-    # Get the format number (returns Fixnum).  This number is used to indicate
+    # Get the format number (returns Integer).  This number is used to indicate
     # if the stream file is an archive and/or filtered:
     #
     # 0: Archive
@@ -361,14 +361,14 @@ module Gdsii
     def bgnlib_record() @records.get(GRT_BGNLIB); end
 
     #
-    # Get the bgnlib number (returns Fixnum).  This holds the modify/access
+    # Get the bgnlib number (returns Integer).  This holds the modify/access
     # time stamp for the library.  It is probably easier to not access this
     # directly but to use #modify_time and #access_time instead.
     #
     def bgnlib() @records.get_data(GRT_BGNLIB); end
   
     #
-    # Set the bgnlib number.  The value is a Fixnum representation of the
+    # Set the bgnlib number.  The value is a Integer representation of the
     # modify/access time stamp for the library.  It is probably easier to
     # not access this directly but to use #modify_time= and #access_time=
     # instead.

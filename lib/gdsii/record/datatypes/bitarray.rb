@@ -32,7 +32,7 @@ module Gdsii
       end
       
       # Set the value for this object; verify that the value items are of
-      # type Fixnum (or at least can be coerced using "to_i").
+      # type Integer (or at least can be coerced using "to_i").
       def value=(value)
         @value = Data.coerce_value(value, Integer, :to_i)
       end

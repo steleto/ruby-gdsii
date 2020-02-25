@@ -104,7 +104,7 @@ module Gdsii
     end
         
     #
-    # Set the beginning extension for path type 4 (as Fixnum).  Value is in
+    # Set the beginning extension for path type 4 (as Integer).  Value is in
     # database units.
     #--
     # TODO: more explanation of database units; also example
@@ -116,19 +116,19 @@ module Gdsii
     end
 
     #
-    # Get the beginning extension for path type 4 (as Fixnum).  Value is in
+    # Get the beginning extension for path type 4 (as Integer).  Value is in
     # database units.
     #
     def bgnextn(); @records.get_data(GRT_BGNEXTN); end
     
     #
-    # Get the beginning extension record for path type 4 (as Fixnum).  Value is
+    # Get the beginning extension record for path type 4 (as Integer).  Value is
     # in database units.
     #
     def bgnextn_record(); @records.get(GRT_BGNEXTN); end
 
     #
-    # Set the ending extension for path type 4 (as Fixnum).  Value is in
+    # Set the ending extension for path type 4 (as Integer).  Value is in
     # database units.
     #--
     # TODO: more explanation of database units; also example
@@ -140,13 +140,13 @@ module Gdsii
     end
 
     #
-    # Get the ending extension for path type 4 (as Fixnum).  Value is in
+    # Get the ending extension for path type 4 (as Integer).  Value is in
     # database units.
     #
     def endextn(); @records.get_data(GRT_ENDEXTN); end
     
     #
-    # Get the ending extension record for path type 4 (as Fixnum).  Value is
+    # Get the ending extension record for path type 4 (as Integer).  Value is
     # in database units.
     #
     def endextn_record(); @records.get(GRT_ENDEXTN); end

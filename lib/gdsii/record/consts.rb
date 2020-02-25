@@ -357,7 +357,7 @@ module Gdsii
   # Returns the name for given record type if it is found; if not, then
   # the record number formatted as a String is returned
   def grt_name(grt_number)
-    if grt_number.class == Fixnum
+    if grt_number.class == Integer
       if (0..RECORD_INFO.length-1).member?(grt_number)
         RECORD_INFO[grt_number].name
       else
@@ -371,7 +371,7 @@ module Gdsii
   # Returns the name for given record data type if it is found; if not, then
   # the record data type number formatted as a String is returned
   def gdt_name(gdt_number)
-    if gdt_number.class == Fixnum
+    if gdt_number.class == Integer
       if (0..DATATYPE_INFO.length-1).member?(gdt_number)
         DATATYPE_INFO[gdt_number].name
       else

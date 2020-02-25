@@ -10,7 +10,7 @@
 # David M. Inman (created shell around test only)
 #
 
-require 'test/helper.rb'
+require_relative 'helper.rb'
 require_relative '../lib/gdsii'
 require 'tempfile'
 

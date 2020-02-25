@@ -24,7 +24,7 @@ module Gdsii
 
     #
     # Property object constructor.  A property consists of a attribute
-    # number (Fixnum) and a respective property value as a String.
+    # number (Integer) and a respective property value as a String.
     #
     def initialize(attr=nil, value=nil)
       super()
@@ -33,7 +33,7 @@ module Gdsii
     end
 
     #
-    # Get the attribute number (Fixnum)
+    # Get the attribute number (Integer)
     #
     def attr() @records.get_data(GRT_PROPATTR); end
 
